@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'profilefield_textregex'; // Full name of the plugin (used for diagnostics).
 $plugin->version   = 2026073000;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2024100700;        // Requires this Moodle version (4.5).
+$plugin->requires  = 2025041400;        // Requires this Moodle version (5.0).
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '1.1.0';
-$plugin->supported = [405, 501];
+$plugin->supported = [500, 501];
