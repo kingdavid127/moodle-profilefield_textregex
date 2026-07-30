@@ -44,6 +44,7 @@ use coding_exception;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2025 onwards Bence Molnar
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(provider::class)]
 final class provider_test extends provider_testcase {
 
     /**
@@ -57,7 +58,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test getting the context for the user ID related to this plugin.
      *
-     * @coversNothing
      * @throws dml_exception
      */
     public function test_get_contexts_for_userid(): void {
@@ -81,7 +81,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test that data is exported correctly for this plugin.
      *
-     * @coversNothing
      * @throws coding_exception|dml_exception
      */
     public function test_export_user_data(): void {
@@ -111,7 +110,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test that user data is deleted using the context.
      *
-     * @coversNothing
      * @throws dml_exception
      */
     public function test_delete_data_for_all_users_in_context(): void {
@@ -142,7 +140,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test that user data is deleted for this user.
      *
-     * @coversNothing
      * @throws dml_exception
      */
     public function test_delete_data_for_user(): void {
@@ -175,7 +172,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test that only users with a user context are fetched.
      *
-     * @coversNothing
      * @throws dml_exception
      */
     public function test_get_users_in_context(): void {
@@ -214,7 +210,6 @@ final class provider_test extends provider_testcase {
     /**
      * Test that data for users in approved userlist is deleted.
      *
-     * @coversNothing
      * @throws dml_exception
      */
     public function test_delete_data_for_users(): void {
