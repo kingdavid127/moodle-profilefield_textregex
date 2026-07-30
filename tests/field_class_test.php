@@ -30,8 +30,8 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
 
-require_once($CFG->dirroot.'/user/profile/lib.php');
-require_once($CFG->dirroot.'/user/profile/field/textregex/field.class.php');
+require_once($CFG->dirroot . '/user/profile/lib.php');
+require_once($CFG->dirroot . '/user/profile/field/textregex/field.class.php');
 
 use profile_field_textregex;
 use advanced_testcase;
@@ -44,18 +44,17 @@ use stdClass;
  * @package    profilefield_textregex
  * @copyright  2022 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @covers     \profilefield_textregex\profile_field_textregex
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(profile_field_textregex::class)]
 final class field_class_test extends advanced_testcase {
     /**
      * Test that the profile textregex data is formatted and required filters applied
      *
-     * @covers       \profile_field_textregex::display_data
-     * @dataProvider filter_profile_field_textregex_provider
      * @param string $input
      * @param string $expected
      * @throws coding_exception
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('filter_profile_field_textregex_provider')]
     public function test_filter_display_data(string $input, string $expected): void {
         $this->resetAfterTest();
         $field = new profile_field_textregex();

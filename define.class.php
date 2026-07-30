@@ -32,7 +32,6 @@
  * @copyright 2025 onwards Bence Molnar
  */
 class profile_define_textregex extends profile_define_base {
-
     /**
      * Add elements for creating/editing a textregex profile field.
      *
@@ -71,7 +70,6 @@ class profile_define_textregex extends profile_define_base {
         ];
         $form->addElement('select', 'param5', get_string('profilefieldlinktarget', 'admin'), $targetoptions);
         $form->setType('param5', PARAM_RAW);
-
     }
 
     /**
@@ -85,7 +83,8 @@ class profile_define_textregex extends profile_define_base {
     public function define_validate_specific($data, $files): array {
         $errors = [];
 
-        if (preg_match($data->param3, '') === false) {
+        // Probe the pattern for validity; @ suppresses the PHP warning an invalid pattern emits.
+        if (@preg_match($data->param3, '') === false) {
             $errors['param3'] = get_string('errorconfigregex', 'profilefield_textregex');
         } else if (!empty($data->defaultdata) && !preg_match($data->param3, $data->defaultdata)) {
             $errors['param3'] = get_string('errorconfigdefault', 'profilefield_textregex');
@@ -93,5 +92,4 @@ class profile_define_textregex extends profile_define_base {
 
         return $errors;
     }
-
 }
